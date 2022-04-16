@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\NoteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,5 +24,14 @@ Route::post("/login",[LoginController::class,'login']);
 
 Route::middleware('auth:sanctum')->group(function() {
     Route::get("/users",[UserController::class,'users']);
-    Route::get("/logout",[LogoutController::class,'logout']);
+    Route::post("/logout",[LogoutController::class,'logout']);
+
+    //Crud Note
+    Route::post("/addNotes",[NoteController::class,'store']);
+    Route::get("/getNotes",[NoteController::class,'getNotes']);
+    Route::patch("/editNotes/{id}",[NoteController::class,'edit']);
+    Route::patch("/cloneNotes/{id}",[NoteController::class,'cloneNotes']);
+    Route::post("/updateNotes/{id}",[NoteController::class,'updateNotes']);
+    Route::delete("/deleteNotes/{id}",[NoteController::class,'deleteNotes']);
+    
 });
