@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Note;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Achive;
+use App\Models\Bin;
 
 class NoteController extends Controller
 {
@@ -64,4 +66,35 @@ class NoteController extends Controller
         }
     }
 
+    public function addBin($id)
+    {
+        $bins = new Bin();
+        $notes = Note::findOrFail($id);
+        $bins->user_id = $notes->user_id;
+        $bins->title = $notes->title;
+        $bins->notes = $notes->notes;
+        $result = $bins->save();
+        $notes->delete();
+        if($result){
+            return response()->json(['success' => true]);
+        } else {
+            return response()->json(['success' => false]);
+        }
+    }
+
+    public function addAchive($id)
+    {
+        $achives = new Achive();
+        $notes = Note::findOrFail($id);
+        $achives->user_id = $notes->user_id;
+        $achives->title = $notes->title;
+        $achives->notes = $notes->notes;
+        $result = $achives->save();
+        $notes->delete();
+        if($result){
+            return response()->json(['success' => true]);
+        } else {
+            return response()->json(['success' => false]);
+        }
+    }
 }
