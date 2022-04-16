@@ -10,21 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class BinController extends Controller
 {
-    public function addBin($id)
-    {
-        $bins = new Bin();
-        $notes = Note::findOrFail($id);
-        $bins->user_id = $notes->user_id;
-        $bins->title = $notes->title;
-        $bins->notes = $notes->notes;
-        $result = $bins->save();
-        $notes->delete();
-        if($result){
-            return response()->json(['success' => true]);
-        } else {
-            return response()->json(['success' => false]);
-        }
-    }
 
     public function getBinNotes()
     {
