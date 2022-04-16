@@ -7,6 +7,8 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\NoteController;
+use App\Http\Controllers\Notes\AchiveController;
+use App\Http\Controllers\Notes\BinController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,5 +35,13 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::patch("/cloneNotes/{id}",[NoteController::class,'cloneNotes']);
     Route::post("/updateNotes/{id}",[NoteController::class,'updateNotes']);
     Route::delete("/deleteNotes/{id}",[NoteController::class,'deleteNotes']);
-    
+
+    Route::patch("/addAchive/{id}",[AchiveController::class,'addAchive']);
+    Route::get("/getAchiveNotes",[AchiveController::class,'getAchiveNotes']);
+    Route::patch("/deleteAchives/{id}",[AchiveController::class,'deleteAchives']);
+
+    Route::patch("/addBin/{id}",[BinController::class,'addBin']);
+    Route::get("/getBin",[BinController::class,'getBinNotes']);
+    Route::patch("/recycleBin/{id}",[BinController::class,'recycleBin']);
+    Route::delete("/fullDeleteBin/{id}",[BinController::class,'deleteFullBin']);
 });
