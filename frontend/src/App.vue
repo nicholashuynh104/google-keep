@@ -1,23 +1,15 @@
 <template>
-  <v-app>
-    <v-main>
-      <HelloWorld/>
-    </v-main>
-  </v-app>
+  <div>
+    <router-view/>
+  </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-
-  components: {
-    HelloWorld,
-  },
-
-  data: () => ({
-    //
-  }),
+<style>
+*{
+  margin: 0px;
+  padding: 0px;
 }
-</script>
+body{
+  background: rgb(241, 240, 240);
+}
+</style>
