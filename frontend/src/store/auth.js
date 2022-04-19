@@ -43,7 +43,7 @@ export default ({
       if (response.data.success) {
         // commit("token",response.data.token);
         localStorage.setItem("token", response.data.token);
-        alert("Logiin Successfully");
+        alert("Login Successfully");
         router.push('/notes');
       } else {
         alert("Invalid email and password");

@@ -14,7 +14,7 @@ class BinController extends Controller
     public function getBinNotes()
     {
         $bins = Bin::where('user_id',Auth::user()->id)->orderBy ('id','DESC')->get();
-        return response()->json($bins);
+        return response()->json(['bins'=> $bins]);
     }
 
     public function recycleBin($id)

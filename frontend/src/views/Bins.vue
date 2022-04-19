@@ -8,26 +8,22 @@
 
         <v-container>
         <Navbar />
-
-          <add-notes />
-          <show-notes />
+          <show-bins />
         </v-container>
       </div>
     </div>
   </div>
 </template>
 <script>
-import AddNotes from "../components/AddNotes.vue";
 import Navbar from "../components/Navbar.vue";
-import ShowNotes from "../components/ShowNotes.vue";
+import ShowBins from '../components/ShowBins.vue';
 import Sidebar from "../components/Sidebar.vue";
 export default {
   name: "navbar",
   components: {
     Navbar,
     Sidebar,
-    AddNotes,
-    ShowNotes,
+    ShowBins,
   },
 };
 </script>

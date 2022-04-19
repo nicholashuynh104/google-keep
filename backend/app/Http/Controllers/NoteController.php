@@ -26,7 +26,7 @@ class NoteController extends Controller
     public function getNotes()
     {
         $notes = Note::where('user_id', Auth::user()->id)->with('user')->get();
-        return response()->json($notes);
+        return response()->json(['notes' => $notes]);
     }
 
     public function edit($id)
