@@ -26,7 +26,7 @@ Route::post("/login",[LoginController::class,'login']);
 
 Route::middleware('auth:sanctum')->group(function() {
     Route::get("/users",[UserController::class,'users']);
-    Route::post("/logout",[LogoutController::class,'logout']);
+    Route::get("/logout",[LogoutController::class,'logout']);
 
     //Crud Note
     Route::post("/addNotes",[NoteController::class,'store']);
@@ -34,7 +34,7 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::patch("/editNotes/{id}",[NoteController::class,'edit']);
     Route::patch("/cloneNotes/{id}",[NoteController::class,'cloneNotes']);
     Route::post("/updateNotes/{id}",[NoteController::class,'updateNotes']);
-    Route::delete("/deleteNotes/{id}",[NoteController::class,'deleteNotes']);
+    // Route::delete("/deleteNotes/{id}",[NoteController::class,'deleteNotes']);
     Route::patch("/addBin/{id}",[NoteController::class,'addBin']);
     Route::patch("/addAchive/{id}",[NoteController::class,'addAchive']);
 
